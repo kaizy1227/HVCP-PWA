@@ -1,35 +1,20 @@
-const CACHE_NAME = "hvcp-cache-v1";
-const urlsToCache = ["/", "/index.html", "/manifest.json"];
-
-// Cài đặt service worker
-self.addEventListener("install", event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(urlsToCache);
-    })
-  );
+const CACHE = 'hvcp-v1';
+self.addEventListener('install', (e) => {
+  e.waitUntil(self.skipWaiting());
 });
-
-// Kích hoạt service worker
-self.addEventListener("activate", event => {
-  event.waitUntil(
-    caches.keys().then(cacheNames =>
-      Promise.all(
-        cacheNames.map(cache => {
-          if (cache !== CACHE_NAME) {
-            return caches.delete(cache);
-          }
+self.addEventListener('activate', (e) => {
+  e.waitUntil(self.clients.claim());
+});
+self.addEventListener('fetch', (e) => {
+  e.respondWith(
+    caches.open(CACHE).then(cache =>
+      cache.match(e.request).then(resp =>
+        resp || fetch(e.request).then(net => {
+          // Cache GET requests
+          if (e.request.method === 'GET') cache.put(e.request, net.clone());
+          return net;
         })
       )
     )
-  );
-});
-
-// Fetch offline caching
-self.addEventListener("fetch", event => {
-  event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
-    })
   );
 });

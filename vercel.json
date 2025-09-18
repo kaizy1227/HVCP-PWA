@@ -1,4 +1,11 @@
-{"framework": null,
-"buildCommand": "npm ci --legacy-peer-deps && npm run build:web",
-"outputDirectory": "dist"
+{
+  "buildCommand": "npm ci --legacy-peer-deps && npm run build:web",
+  "outputDirectory": "dist",
+  "framework": null,
+  "headers": [
+    {
+      "source": "/manifest.webmanifest",
+      "headers": [{ "key": "Content-Type", "value": "application/manifest+json" }]
+    }
+  ]
 }
