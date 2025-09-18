@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, FlatList, Image, Dimensions } from "react-native";
 import React, { useEffect } from "react";
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { wp, hp } from '../utils/responsive';
 import { SERVICES } from "../data/dummy-data";
 
 const IngredientScreen = ({ route, navigation }) => {
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   gridItem: {
     flex: 1,
     width: wp('100%'), // Chiều rộng 100%
-    height: height < 600 ? hp('30%') : hp('50%'), // Chiều cao thay đổi theo kích thước màn hình
+    height: height < 600 ? hp('30') : hp('50'), // Chiều cao thay đổi theo kích thước màn hình
     marginBottom: 20,
     borderRadius: 8,
     backgroundColor: 'rgba(74, 35, 6, 0.67)',

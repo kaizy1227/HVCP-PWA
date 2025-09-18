@@ -1,7 +1,7 @@
 import { View, Text, Pressable, StyleSheet, Image } from "react-native";
 import React from "react";
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
+import { wp, hp } from '../utils/responsive';
 
 export const ServiceGridTile = ({ title, imageUrl, onPress }) => {
   return (
@@ -55,8 +55,8 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   image: {
-    width: wp("35%"),
-    height: hp("20%"),
+    width: wp("35"),
+    height: hp("20"),
     borderRadius: 20,
     marginTop: 15,
   },

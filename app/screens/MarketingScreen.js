@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, FlatList, TouchableOpacity,Modal,ScrollView , I
 import React, { useState }  from "react";
 import { SERVICES } from "../data/dummy-data";
 import { useEffect } from "react";
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { wp, hp } from '../utils/responsive';
 
 const MarketingScreen = ({ route, navigation }) => {
   const mccID = route.params.serviceId;
@@ -153,8 +153,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center', // Căn giữa nội dung bên trong
   },
   image: {
-      width: wp('30%'),
-      height: hp('30%'),
+      width: wp('30'),
+      height: hp('30'),
     borderRadius: 8, // Bo góc cho hình ảnh
   },
   title: {
@@ -184,15 +184,15 @@ const styles = StyleSheet.create({
       },
                          modalContent: {
                            flex: 1,
-                               width: wp('100%'),
+                               width: wp('100'),
                            justifyContent: 'center',
                            alignItems: 'center',
                            backgroundColor: 'rgba(74, 35, 6, 0.67)',
                            padding: 20, // Thêm padding nếu cần
                          },
                          modalImage: {
-                           width: wp('80%'),
-                           height: hp('80%'),
+                           width: wp('80'),
+                           height: hp('80'),
                            marginBottom: 20,
                            //padding: 20,
                          },

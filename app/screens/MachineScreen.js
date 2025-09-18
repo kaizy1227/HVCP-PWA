@@ -12,7 +12,7 @@ import {
   useWindowDimensions,
 } from "react-native";
 import { MACHINES, SERVICES, EQUIPMENTS } from "../data/dummy-data";
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { wp, hp } from '../utils/responsive';
 
 const MachineScreen = ({ route, navigation }) => {
   const mccID = route.params.serviceId;
@@ -78,7 +78,7 @@ const MachineScreen = ({ route, navigation }) => {
           style={[
             styles.sidebar,
             {
-              width: isDesktop ? '25%' : wp('70%'),
+              width: isDesktop ? '25%' : wp('70'),
               left: sidebarAnim,
               position: isDesktop ? 'relative' : 'absolute',
               zIndex: 10,
@@ -105,7 +105,7 @@ const MachineScreen = ({ route, navigation }) => {
       <View
         style={{
           flex: 1,
-          marginLeft: !isDesktop && sidebarVisible ? wp('70%') : 0,
+          marginLeft: !isDesktop && sidebarVisible ? wp('70') : 0,
           padding: isDesktop ? 30 : 15,
         }}
       >
@@ -194,8 +194,8 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   image: {
-    width: wp("35%"),
-    height: hp("25%"),
+    width: wp("35"),
+    height: hp("25"),
     borderRadius: 10,
   },
   itemTitle: {
@@ -214,8 +214,8 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   modalImage: {
-    width: wp("90%"),
-    height: hp("90%"),
+    width: wp("90"),
+    height: hp("90"),
     borderRadius: 12,
     marginBottom: 20,
   },

@@ -13,10 +13,7 @@ import {
 import React, { useEffect, useState, useRef } from "react";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { COURSES, SERVICES, TOPICS } from "../data/dummy-data";
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from "react-native-responsive-screen";
+import { wp, hp } from '../utils/responsive';
 
 const CoursesOverviewScreen = ({ route, navigation }) => {
   const seID = route.params.serviceId;
@@ -52,7 +49,7 @@ const CoursesOverviewScreen = ({ route, navigation }) => {
   }, [seID, navigation]);
 
   const toggleSidebar = () => {
-    const toValue = sidebarVisible ? -wp('70%') : 0; // slide left when hide
+    const toValue = sidebarVisible ? -wp('70') : 0; // slide left when hide
     Animated.timing(sidebarAnim, {
       toValue,
       duration: 300,
@@ -88,7 +85,7 @@ const CoursesOverviewScreen = ({ route, navigation }) => {
           style={[
             styles.sidebar,
             {
-              width: isDesktop ? '25%' : wp('70%'),
+              width: isDesktop ? '25%' : wp('70'),
               left: sidebarAnim,
               position: isDesktop ? 'relative' : 'absolute',
               zIndex: 10,
@@ -118,7 +115,7 @@ const CoursesOverviewScreen = ({ route, navigation }) => {
             <View
               style={{
                 flex: 1,
-                marginLeft: !isDesktop && sidebarVisible ? wp('70%') : 0,
+                marginLeft: !isDesktop && sidebarVisible ? wp('70') : 0,
                 padding: isDesktop ? 30 : 15,
               }}
             >
@@ -254,8 +251,8 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   modalImage: {
-    width: wp("90%"),
-    height: hp("90%"),
+    width: wp("90"),
+    height: hp("90"),
     borderRadius: 12,
     marginBottom: 20,
   },
@@ -299,7 +296,7 @@ const styles = StyleSheet.create({
     },
       image: {
         width: "100%",
-        height: hp("25%"),
+        height: hp("25"),
         borderRadius: 10,
       },
     cardTitle: {

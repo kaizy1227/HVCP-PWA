@@ -11,10 +11,7 @@ import {
 } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import { SERVICES,FULLSERVICES,CATFULLSERVICES } from '../data/dummy-data';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
+import { wp, hp } from '../utils/responsive';
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 const FullServiceScreen = ({ route, navigation }) => {
@@ -39,7 +36,7 @@ const FullServiceScreen = ({ route, navigation }) => {
   const [selectedTitle, setSelectedTitle] = useState('');
   const [imageVisible, setImageVisible] = useState(true);
   const [isSidebarVisible, setSidebarVisible] = useState(false);
-  const sidebarAnim = useState(new Animated.Value(-wp('60%')))[0];
+  const sidebarAnim = useState(new Animated.Value(-wp('60')))[0];
 
   const displayedFullServices = FULLSERVICES.filter((fullservice) =>
         fullservice.catfullserviceIds.includes(selectedCategory)
@@ -47,7 +44,7 @@ const FullServiceScreen = ({ route, navigation }) => {
 
   const toggleSidebar = () => {
     Animated.timing(sidebarAnim, {
-      toValue: isSidebarVisible ? -wp('60%') : 0,
+      toValue: isSidebarVisible ? -wp('60') : 0,
       duration: 300,
       useNativeDriver: false,
     }).start();
@@ -145,7 +142,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 0,
     bottom: 0,
-    width: wp('60%'),
+    width: wp('60'),
     backgroundColor: '#f0f0f0',
     zIndex: 10,
     paddingTop: 50,
@@ -170,7 +167,7 @@ const styles = StyleSheet.create({
   },
   headerImage: {
     width: '100%',
-    height: hp('30%'),
+    height: hp('30'),
     marginBottom: 20,
   },
   gridItem: {
@@ -183,8 +180,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   image: {
-    width: wp('30%'),
-    height: hp('30%'),
+    width: wp('30'),
+    height: hp('30'),
     borderRadius: 8,
   },
   modalContent: {
