@@ -47,7 +47,7 @@
     "react-native-webview": "^13.13.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0",
+    "@babel/core": "^7.25.2",
     "@expo/webpack-config": "^19.0.1",
     "@types/jest": "^29.5.12",
     "@types/react": "~18.3.12",
@@ -58,5 +58,12 @@
     "react-test-renderer": "18.2.0",
     "typescript": "~5.3.3"
   },
-  "private": true
+  "private": true,
+  "expo": {
+    "doctor": {
+      "reactNativeDirectoryCheck": {
+        "exclude": ["react-native-responsive-screen", "react-native-video-controls", "@types/react-native"]
+      }
+    }
+  }
 }
