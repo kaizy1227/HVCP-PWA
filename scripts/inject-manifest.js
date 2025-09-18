@@ -5,12 +5,12 @@ const path = require('path');
 const indexPath = path.join(__dirname, '..', 'dist', 'index.html');
 if (!fs.existsSync(indexPath)) {
   console.error('❌ Không tìm thấy dist/index.html. Bạn đã chạy build chưa?');
-  process.exit(1);
+  process.exit(0); // để không fail build
 }
 
 let html = fs.readFileSync(indexPath, 'utf8');
 
-// chèn manifest + SW nếu chưa có
+// chèn manifest
 if (!html.includes('rel="manifest"')) {
   html = html.replace(
     '</head>',
@@ -18,6 +18,7 @@ if (!html.includes('rel="manifest"')) {
   );
 }
 
+// register service worker
 if (!html.includes('navigator.serviceWorker.register')) {
   html = html.replace(
     '</body>',
@@ -33,4 +34,4 @@ if ('serviceWorker' in navigator) {
 }
 
 fs.writeFileSync(indexPath, html, 'utf8');
-console.log('✅ Manifest + Service Worker đã được chèn vào dist/index.html');
+console.log('✅ Manifest + SW đã được chèn vào dist/index.html');

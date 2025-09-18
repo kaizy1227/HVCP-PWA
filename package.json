@@ -10,8 +10,9 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
 
+
     // Build web tĩnh vào thư mục dist
-    "build:web": "expo export --platform web --output-dir dist && cp -r public/* dist/ 2>/dev/null || true && node scripts/inject-manifest.js",
+    "build:web": "expo export --platform web --output-dir dist && if [ -d public ]; then cp -r public/* dist/; fi; node -e \"const fs=require('fs');if(fs.existsSync('scripts/inject-manifest.js'))require('./scripts/inject-manifest.js')\"",
 
     // Lệnh build mà Vercel sẽ gọi
     "build": "npm run build:web"
