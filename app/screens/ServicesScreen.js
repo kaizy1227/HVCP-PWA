@@ -10,10 +10,12 @@ function ServicesScreen({ navigation }) {
     if (serviceId === 's1') {
             navigation.navigate("Khóa Học Pha Chế", {
             serviceId:  itemData.item.id,
+
     });
     } else if (serviceId === 's3') {
             navigation.navigate("Máy Pha Chế", {
             serviceId:  itemData.item.id,
+
     });
     } else if (serviceId === 's2') {
                 navigation.navigate("Danh Mục Đồ Uống", {
