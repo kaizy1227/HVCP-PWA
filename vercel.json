@@ -1,8 +1,4 @@
-{
-  "build": {
-    "env": {
-      "NPM_FLAGS": "--legacy-peer-deps"
-    }
-  },
-  "outputDirectory": "dist"
+{"framework": null,
+"buildCommand": "npm ci --legacy-peer-deps && npm run build:web",
+"outputDirectory": "dist"
 }

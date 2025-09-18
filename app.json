@@ -9,11 +9,13 @@
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "backgroundColor": "#24180f",
+
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.vuthanhhai126.expensetracker",
@@ -31,7 +33,7 @@
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/favicon.png",
+      "favicon": "./assets/icon.png",
       "pwa": {
         "name": "My PWA App",
         "shortName": "MyPWA",
@@ -42,12 +44,12 @@
         "scope": "/",
         "icons": [
           {
-            "src": "./assets/icon.png",
+            "src": "./assets/icon192.png",
             "sizes": "192x192",
             "type": "image/png"
           },
           {
-            "src": "./assets/icon.png",
+            "src": "./assets/icon512.png",
             "sizes": "512x512",
             "type": "image/png"
           }
