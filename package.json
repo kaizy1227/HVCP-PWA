@@ -9,10 +9,9 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "test": "jest --watchAll",
-    "build:web": "expo export --platform web && npm run copy-public",
-    "copy-public": "copyfiles -u 1 public/**/* dist/",
-    "lint": "expo lint"
+    "build:web": "expo export --platform web --output-dir dist && cp -rm public/* dist/ 2>/dev/null || true"
   },
+  "vercel-build": "npm ci --legacy-peer-deps && npm run build:web",
   "jest": {
     "preset": "jest-expo"
   },
